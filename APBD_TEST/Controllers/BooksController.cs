@@ -25,14 +25,5 @@ public class BooksController : ControllerBase
         return Ok(book);
     }
     
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteGenre(int id)
-    {
-        if (!await _booksRepository.DoesGenreExist(id))
-            return NotFound($"Genre with given ID - {id} doesn't exist");
-
-        await _booksRepository.DeleteGenre(id);
-
-        return NoContent();
-    }
+    
 }
